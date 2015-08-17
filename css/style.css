@@ -1,0 +1,105 @@
+body
+{
+	background: url(../img/fondo_face.png);
+	background-attachment: fixed;
+	no-repeat center center fixed; 
+		 background-size: cover; 
+		-moz-background-size: cover; 
+		-webkit-background-size: cover; 
+		-o-background-size: cover;
+}
+input{text-align: center;}
+#contenedor
+{
+	width: 90%;
+	background-color: #dfe3ee;
+	border-radius: 5px;
+	padding: 10px;
+	box-shadow:0px 10px 30px rgba(0,0,0,0.9);
+}
+#login
+{
+	/*width: 378px;*/
+	width: 80%;
+	height: 272px;
+	background-color:#dfe3ee;
+	border:1px solid #3b5998;
+	/*background: url(../img/login.gif);*/
+	padding: 60px;
+	
+	
+}
+.publicacion
+{
+	width: 80%;
+	height: auto;
+	background-color:#f7f7f7;
+	border:1px solid #3b5998;
+	text-align: left;
+	padding: 10px;
+	box-shadow:0px 10px 30px rgba(0,0,0,0.9);
+
+}
+.comentario
+{
+	width: 80%;
+	height: auto;
+	background-color:#f7f7f7;
+	border:1px solid #3b5998;
+	text-align: left;
+	padding: 10px;
+	box-shadow:0px 10px 30px rgba(0,0,0,0.9);
+
+}
+#lbl_nombre{
+	color: #3b5998;
+	font-size: 18px;
+}
+#lbl_datos
+{
+	color: grey;
+	font-size: 12px;
+}
+#lbl_expediente
+{
+	color: #34ba53;
+}
+#barra
+{
+	width: 90%;
+}
+iframe
+{
+	width: 100%;
+}
+#logo
+{
+	width: 20%;
+}
+#estatus_ike
+{
+	text-align: center;
+	float: right;
+	padding: 5px;
+}
+#ike_img{
+	width: 40px;
+}
+#logo_dot
+{
+	width: 50px;
+	height: 50px;
+}
+#li_video{
+	cursor:pointer;
+}
+#img_servicio
+{
+	width: 100%;
+}
+.input_reporte{
+height: 25px;
+border-radius: 5px;
+background-color: grey;
+color: white;
+}

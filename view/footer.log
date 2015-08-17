@@ -1,0 +1,19 @@
+	<br><br>
+	<footer>
+	
+			<p>Designed By <a href="https://www.facebook.com/katzesystems" target="blank">KatzeSystems </a> 
+			<span class="glyphicon glyphicon-copyright-mark"></span></p>
+	</footer>
+
+	</center>
+	
+	</div>
+	<!--Scrpt-->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/ui/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/fancywebsocket.js"></script>
+	<script type="text/javascript" src="js/code.js"></script>
+	<!--End Scrpt-->	
+</body>
+</html>

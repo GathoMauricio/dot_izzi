@@ -1,0 +1,103 @@
+	<br><br>
+	<footer>
+	
+			<p>Designed By <a href="https://www.facebook.com/katzesystems" target="blank">KatzeSystems </a> 
+			<span class="glyphicon glyphicon-copyright-mark"></span></p>
+	</footer>
+
+	</center>
+	
+	</div>
+	<!--Scrpt-->
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="../js/Concurrent.Thread.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.js"></script>
+	<script src="http://js.pusher.com/2.2/pusher.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="../js/code.js"></script>
+	<!--End Scrpt-->
+
+		<!-- Modal para video -->
+<div class="modal fade" id="modal-video" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <center>
+                                    <h4>DR WiFi</h4>
+                                    </center>
+                                    </div>
+                                    <div class="modal-body">
+                                    <center>
+                                       <div id="kaltura_player_1424463925" style="width: 400px; height: 333px;" itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
+										<span itemprop="name" content="Dr Wifi"></span>
+										<span itemprop="description" content="capacitacion"></span>
+										<span itemprop="duration" content="3628"></span>
+										<span itemprop="thumbnail" content="http://cdnbakmi.kaltura.com/p/1893551/sp/189355100/thumbnail/entry_id/0_fmtjck2f/version/100002/acv/132"></span>
+										<span itemprop="width" content="400"></span>
+										<span itemprop="height" content="333"></span>
+										<a href="http://corp.kaltura.com/products/video-platform-features">Video Platform</a>
+										<a href="http://corp.kaltura.com/Products/Features/Video-Management">Video Management</a> 
+										<a href="http://corp.kaltura.com/Video-Solutions">Video Solutions</a>
+										<a href="http://corp.kaltura.com/Products/Features/Video-Player">Video Player</a></div>
+										<script src="http://cdnapi.kaltura.com/p/1893551/sp/189355100/embedIframeJs/uiconf_id/28169362/partner_id/1893551?autoembed=true&entry_id=0_fmtjck2f&playerId=kaltura_player_1424463925&cache_st=1424463925&width=400&height=333"></script>
+                                     </center>   
+                                    </div>
+                                    <div class="modal-footer">
+                                        
+                                    </div>
+            </div>
+        </div>
+     </div>	
+
+     <!-- Modal para actualizar imagen expediente -->
+<div class="modal fade" id="modal-imagen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <center>
+                                    <h4>Selecciona una imagen para agregarlo a este servicio</h4>
+                                    </center>
+                                    </div>
+                                    <div class="modal-body">
+                                    <center>
+                                       <form action="../control/guardar_imagen.php" method="POST" enctype="multipart/form-data">
+                                       <input type="text" id="txt_expediente_imagen" name="expediente" hidden>
+                                       <input type="file" id="file_imagen" name="imagen" class="form-control" required>
+                                       <br>
+                                       <input type="submit" class="btn btn-info"  value="Guardar Imagen">
+                                       </form>
+                                     </center>   
+                                    </div>
+                                    <div class="modal-footer">
+                                        
+                                    </div>
+            </div>
+        </div>
+     </div>
+
+	<!-- Modal para ver imagen expediente -->
+<div class="modal fade" id="modal-ver-imagen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <center>
+                                    <h4>Imagen para  este servicio</h4>
+                                    </center>
+                                    </div>
+                                    <div class="modal-body">
+                                    <center>
+                                    <div id="imagen_servicio"><img id="img_servicio"></div>   
+                                    </center>   
+                                    </div>
+                                    <div class="modal-footer">
+                                        
+                                    </div>
+            </div>
+        </div>
+     </div>
+</body>
+</html>
