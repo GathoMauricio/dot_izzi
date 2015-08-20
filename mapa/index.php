@@ -41,11 +41,14 @@ var time=0;
           
           var direccion = new google.maps.LatLng(lat,lon);
           var ico="";
+          var rol="";
           if("<?php echo $fila['id_rol']; ?>"==2)
           {
             ico="ico_g.png";
+            rol="Gerente: ";
           }else{
-            ico="ico_t.png"
+            ico="ico_t.png";
+            rol="Técnico: ";
           }
 
             marcadores.add(new google.maps.Marker({
@@ -54,7 +57,7 @@ var time=0;
             animation:google.maps.Animation.DROP,
             draggable:false,
             icon:ico,
-            title: "<?php echo $fila['nombre']." ".$fila['apaterno']." ".$fila['amaterno']; ?>\n Ultima conexión: <?php echo $fila['fecha_conexion']; ?> a las <?php echo $fila['hora_conexion']; ?> Hrs"
+            title:rol+"<?php echo $fila['nombre']." ".$fila['apaterno']." ".$fila['amaterno']; ?>\n Ultima conexión: <?php echo $fila['fecha_conexion']; ?> a las <?php echo $fila['hora_conexion']; ?> Hrs"
            }));
           <?php  } ?>//end while sql
 
