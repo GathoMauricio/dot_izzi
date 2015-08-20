@@ -13,6 +13,7 @@ while($fila=mysqli_fetch_array($datos)){
  	"hora"=>$fila['hora_conexion'],
  	"lat"=>$fila['lat'],
  	"lon"=>$fila['lon'],
+ 	"aprox"=>$fila['aprox'],
  	"foto"=>$fila['foto']
  	);
 }

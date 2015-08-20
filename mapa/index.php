@@ -15,6 +15,7 @@ $(document).ready(function(){
 var contador=0;
  var ico="";
  var rol="";
+ 
 var map; //importante definirla fuera de la funcion initialize() para poderla usar desde otras funciones.
 var marcadores=new Array();
 //var textos=new Array();
@@ -40,6 +41,7 @@ var time=0;
           ?>
           var lon=<?php echo $fila['lon']; ?>;
           var lat=<?php echo $fila['lat']; ?>;
+          var aprox="<?php echo $fila['aprox']; ?>";
           
           var direccion = new google.maps.LatLng(lat,lon);
          
@@ -58,7 +60,7 @@ var time=0;
             animation:google.maps.Animation.DROP,
             draggable:false,
             icon:ico,
-            title:rol+"<?php echo $fila['nombre']." ".$fila['apaterno']." ".$fila['amaterno']; ?>\n Ultima conexión: <?php echo $fila['fecha_conexion']; ?> a las <?php echo $fila['hora_conexion']; ?> Hrs"
+            title:rol+"<?php echo $fila['nombre']." ".$fila['apaterno']." ".$fila['amaterno']; ?>\n Ultima conexión: <?php echo $fila['fecha_conexion']; ?> a las <?php echo $fila['hora_conexion']; ?> Hrs\nAproximación: "+aprox+" Metros"
            }));
           <?php  } ?>//end while sql
 
@@ -83,7 +85,7 @@ var time=0;
                 datos=json;
                 for (var i =  0; i < json.length; i++) {
                     marcadores[i].setPosition(new google.maps.LatLng(json[i].lat,json[i].lon));
-                    marcadores[i].setTitle(rol+json[i].nombre+"\nUltima conexión: "+json[i].fecha+" a las "+json[i].hora+" Hrs.");
+                    marcadores[i].setTitle(rol+json[i].nombre+"\nUltima conexión: "+json[i].fecha+" a las "+json[i].hora+" Hrs.\nAproximación: "+json[i].aprox+" Metros");
                     
                 };
               });
