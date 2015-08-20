@@ -82,7 +82,7 @@ var time=0;
                 datos=json;
                 for (var i =  0; i < json.length; i++) {
                     marcadores[i].setPosition(new google.maps.LatLng(json[i].lat,json[i].lon));
-                    marcadores[i].setTitle(json[i].nombre+"\nUltima conexión: "+json[i].fecha+" a las "+json[i].hora+" Hrs.");
+                    marcadores[i].setTitle(rol+json[i].nombre+"\nUltima conexión: "+json[i].fecha+" a las "+json[i].hora+" Hrs.");
                     
                 };
               });
