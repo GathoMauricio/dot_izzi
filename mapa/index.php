@@ -13,6 +13,8 @@ $(document).ready(function(){
   $("#map_canvas").css("height",screen.height);
 });
 var contador=0;
+ var ico="";
+ var rol="";
 var map; //importante definirla fuera de la funcion initialize() para poderla usar desde otras funciones.
 var marcadores=new Array();
 //var textos=new Array();
@@ -40,8 +42,7 @@ var time=0;
           var lat=<?php echo $fila['lat']; ?>;
           
           var direccion = new google.maps.LatLng(lat,lon);
-          var ico="";
-          var rol="";
+         
           if("<?php echo $fila['id_rol']; ?>"==2)
           {
             ico="ico_g.png";
