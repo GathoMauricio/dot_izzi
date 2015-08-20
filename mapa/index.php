@@ -28,12 +28,10 @@ var time=0;
      google.maps.Map.prototype.markers = new Array();
  
        // marcadores[0].setPosition(new google.maps.LatLng(19.3737678,-98.9813983));
-        
+        <?php include "../mobile/conexion.php" ?>
           <?php 
       
            date_default_timezone_set("Mexico/General");
-           $conexion=mysqli_connect("localhost","root","","dot");
-           mysqli_set_charset($conexion, "utf8");
            $consulta = "SELECT * FROM empleado e LEFT JOIN usuario u ON e.id_usuario=u.id_usuario WHERE u.id_rol=3 ORDER BY e.id_empleado";
            $datos=mysqli_query($conexion,$consulta);
            while($fila=mysqli_fetch_array($datos)){
@@ -63,7 +61,7 @@ var time=0;
             while(1){
               contador++;
               console.log(contador);
-              if(contador==5)
+              if(contador==10)
               {
                 contador=0;
                 console.log("Actualizado...");
@@ -71,6 +69,7 @@ var time=0;
                 var json = eval(data);
                 for (var i =  0; i < json.length; i++) {
                     marcadores[i].setPosition(new google.maps.LatLng(json[i].lat,json[i].lon));
+                    marcadores[i].setTitle(json[i].nombre+"\nUltima conexión: "+json[i].fecha+" a las "+json[i].hora+" Hrs.");
                 };
               });
               }
