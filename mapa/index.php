@@ -32,7 +32,7 @@ var time=0;
           <?php 
       
            date_default_timezone_set("Mexico/General");
-           $consulta = "SELECT * FROM empleado e LEFT JOIN usuario u ON e.id_usuario=u.id_usuario WHERE u.id_rol=3 ORDER BY e.id_empleado";
+           $consulta = "SELECT * FROM empleado e LEFT JOIN usuario u ON e.id_usuario=u.id_usuario WHERE u.id_rol=2 OR u.id_rol=3 ORDER BY e.id_empleado";
            $datos=mysqli_query($conexion,$consulta);
            while($fila=mysqli_fetch_array($datos)){
           ?>
@@ -40,13 +40,20 @@ var time=0;
           var lat=<?php echo $fila['lat']; ?>;
           
           var direccion = new google.maps.LatLng(lat,lon);
+          var ico="";
+          if("<?php echo $fila['id_rol']; ?>"==2)
+          {
+            ico="ico_g.png";
+          }else{
+            ico="ico_t.png"
+          }
 
             marcadores.add(new google.maps.Marker({
             position:new google.maps.LatLng(lat,lon),
             map:null,
             animation:google.maps.Animation.DROP,
             draggable:false,
-            icon:'ico.png',
+            icon:ico,
             title: "<?php echo $fila['nombre']." ".$fila['apaterno']." ".$fila['amaterno']; ?>\n Ultima conexión: <?php echo $fila['fecha_conexion']; ?> a las <?php echo $fila['hora_conexion']; ?> Hrs"
            }));
           <?php  } ?>//end while sql
