@@ -65,11 +65,15 @@ var time=0;
               {
                 contador=0;
                 console.log("Actualizado...");
+                
                 $.post("get_position.php",{},function(data){
+                
                 var json = eval(data);
+                datos=json;
                 for (var i =  0; i < json.length; i++) {
                     marcadores[i].setPosition(new google.maps.LatLng(json[i].lat,json[i].lon));
                     marcadores[i].setTitle(json[i].nombre+"\nUltima conexión: "+json[i].fecha+" a las "+json[i].hora+" Hrs.");
+                    
                 };
               });
               }

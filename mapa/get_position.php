@@ -12,7 +12,8 @@ while($fila=mysqli_fetch_array($datos)){
  	"fecha"=>$fila['fecha_conexion'],
  	"hora"=>$fila['hora_conexion'],
  	"lat"=>$fila['lat'],
- 	"lon"=>$fila['lon']
+ 	"lon"=>$fila['lon'],
+ 	"foto"=>$fila['foto']
  	);
 }
 echo json_encode($empleados);
