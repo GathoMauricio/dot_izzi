@@ -14,22 +14,23 @@ mysqli_query($conexion,$consulta);
 
 require_once 'mail/lib/swift_required.php';
     $transport = Swift_SmtpTransport::newInstance('mail.dotredes.com', 587)
-      ->setUsername('contacto@dotredes.com')
-      ->setPassword('contacto')
+      ->setUsername('asistencia@dotredes.com')
+      ->setPassword('asistencia2769')
     ;
     
     $mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance("Termino de pendiente ".$_POST['id'])
-      ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
       ->setTo(array('rortuno@dotredes.com'=> 'CONTACTO'))
       ->setBody($comentario)
     ;
    $mailer->send($message);
-   $mailer = Swift_Mailer::newInstance($transport);
+   
+   /*$mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance("Termino de pendiente ".$_POST['id'])
-      ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
-      ->setTo(array('systems@dotredes.com'=> 'CONTACTO'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
+      ->setTo(array('desarrollo@dotredes.com'=> 'CONTACTO'))
       ->setBody($comentario)
     ;
-   $mailer->send($message);
+   $mailer->send($message);*/
 ?>

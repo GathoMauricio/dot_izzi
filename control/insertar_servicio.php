@@ -78,13 +78,13 @@ if($fila=mysqli_fetch_array($datos))
 	$mensaje="Nuevo servicio expediente:".$expediente." Fecha: ".$fecha;
 
     $transport = Swift_SmtpTransport::newInstance('mail.dotredes.com', 587)
-      ->setUsername('acanee@dotredes.com')
-      ->setPassword('Mega511114')
+      ->setUsername('asistencia@dotredes.com')
+      ->setPassword('asistencia2769')
     ;
     
     $mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance("Nuevo Servicio")
-      ->setFrom(array('acanee@dotredes.com' => 'DOT REDES'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
       ->setTo(array($fila['email'] => 'CONTACTO'))
       ->setBody($mensaje)
     ;

@@ -25,13 +25,13 @@ $mensaje=$_SESSION['login']." ha reasignado la actividad ".$_POST['id']." a ".$n
 
 require_once 'mail/lib/swift_required.php';
     $transport = Swift_SmtpTransport::newInstance('mail.dotredes.com', 587)
-      ->setUsername('contacto@dotredes.com')
-      ->setPassword('contacto')
+      ->setUsername('asistencia@dotredes.com')
+      ->setPassword('asistencia2769')
     ;
     
     $mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance("Reasignación de actividad")
-      ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
       ->setTo(array('rortuno@dotredes.com'=> 'CONTACTO'))
       ->setBody($mensaje)
     ;
@@ -39,13 +39,13 @@ require_once 'mail/lib/swift_required.php';
 
    //Enviando EMAIL al correo prueba
 
-    $mailer = Swift_Mailer::newInstance($transport);
+    /*$mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance("Reasignación de actividad")
-      ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
-      ->setTo(array( "systems@dotredes.com" => 'CONTACTO'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
+      ->setTo(array( "desarrollo@dotredes.com" => 'CONTACTO'))
       ->setBody($mensaje)
     ;
-   $mailer->send($message);
+   $mailer->send($message);*/
 
    //Enviando EMAIL al empleado asignado
 
@@ -53,7 +53,7 @@ require_once 'mail/lib/swift_required.php';
 
     $mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance("Reasignación de actividad")
-      ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
       ->setTo(array( $email => 'CONTACTO'))
       ->setBody($mensaje)
     ;

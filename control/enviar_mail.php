@@ -16,13 +16,13 @@ $mensaje = wordwrap($mensaje, 70, "\r\n");
 }
 require_once 'mail/lib/swift_required.php';
     $transport = Swift_SmtpTransport::newInstance('mail.dotredes.com', 587)
-      ->setUsername('contacto@dotredes.com')
-      ->setPassword('contacto')
+      ->setUsername('asistencia@dotredes.com')
+      ->setPassword('asistencia2769')
     ;
     
     $mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance($_POST['tipo'])
-      ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
       ->setTo(array('comercial@dotredes.com'=> 'CONTACTO'))
       ->setBody($mensaje)
     ;
@@ -30,7 +30,7 @@ require_once 'mail/lib/swift_required.php';
 
    $mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance($_POST['tipo'])
-      ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
       ->setTo(array('ventas@dotredes.com'=> 'CONTACTO'))
       ->setBody($mensaje)
     ;
@@ -38,7 +38,7 @@ require_once 'mail/lib/swift_required.php';
 
    $mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance($_POST['tipo'])
-      ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
       ->setTo(array('rortuno@dotredes.com'=> 'CONTACTO'))
       ->setBody($mensaje)
     ;
@@ -46,7 +46,7 @@ require_once 'mail/lib/swift_required.php';
 
    $mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance($_SESSION['login']." ha ".$_POST['tipo'])
-      ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
       ->setTo(array('katze.systems@gmail.com'=> 'CONTACTO'))
       ->setBody($mensaje)
     ;
@@ -66,13 +66,13 @@ require_once 'mail/lib/swift_required.php';
       $datos=mysqli_query($conexion,$consulta);
       if($fila=mysqli_fetch_array($datos))
       {
-        $mailer = Swift_Mailer::newInstance($transport);
+       /* $mailer = Swift_Mailer::newInstance($transport);
         $message = Swift_Message::newInstance($_SESSION['login']." ha ".$_POST['tipo'])
-       ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
+       ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
        ->setTo(array($fila['email'] => 'CONTACTO'))
        ->setBody($mensaje)
       ;
-        $mailer->send($message);
+        $mailer->send($message);*/
       }
    }
 

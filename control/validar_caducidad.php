@@ -10,8 +10,8 @@ $tiempo=getdate();
 $hora = $tiempo['hours'].":".$tiempo['minutes'].":00";
 
 $transport = Swift_SmtpTransport::newInstance('mail.dotredes.com', 587)
-      ->setUsername('contacto@dotredes.com')
-      ->setPassword('contacto')
+      ->setUsername('asistencia@dotredes.com')
+      ->setPassword('asistencia2769')
     ;
 
 
@@ -32,7 +32,7 @@ echo "<tr><td>".$fila['titulo']."</td><td>".$fila['nombre']." ".$fila['apaterno'
 
 $mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance("Tienes un pendiente caducado")
-      ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
       ->setTo(array($fila['email'] => 'CONTACTO'))
       ->setBody("Pendiente caducado: ".$fila['titulo']." Favor de checarlo o editar la Fecha/Hora")
     ;
@@ -48,7 +48,7 @@ $mailer = Swift_Mailer::newInstance($transport);
 
    $mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance("Pendiente caducado")
-      ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
       ->setTo(array('rortuno@dotredes.com'=> 'CONTACTO'))
       ->setBody("El pendiente ".$fila['titulo']." ha caducado \n Responsable: ".$fila['nombre']." ".$fila['apaterno'])
     ;
@@ -77,7 +77,7 @@ echo "<tr><td>".$fila['titulo']."</td><td>".$fila['nombre']." ".$fila['apaterno'
 
 $mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance("Tienes un pendiente caducado")
-      ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
       ->setTo(array($fila['email'] => 'CONTACTO'))
       ->setBody("Pendiente caducado: ".$fila['titulo']." Favor de checarlo o editar la Fecha/Hora")
     ;
@@ -93,7 +93,7 @@ $mailer = Swift_Mailer::newInstance($transport);
 
    $mailer = Swift_Mailer::newInstance($transport);
     $message = Swift_Message::newInstance("Pendiente caducado")
-      ->setFrom(array('contacto@dotredes.com' => 'DOT REDES'))
+      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
       ->setTo(array('rortuno@dotredes.com'=> 'CONTACTO'))
       ->setBody("El pendiente ".$fila['titulo']." ha caducado \n Responsable: ".$fila['nombre']." ".$fila['apaterno'])
     ;
