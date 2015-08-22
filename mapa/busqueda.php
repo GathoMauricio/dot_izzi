@@ -1,3 +1,125 @@
+<?php 
+if(isset($_GET['id'])){
+  $lat="";
+  $lon="";
+switch ($_GET['id']) {
+    case 1:
+    $lat="";
+    $lon="";
+    break;
+    case 2:
+    $lat="";
+    $lon="";
+    break;
+    case 3:
+    $lat="";
+    $lon="";
+    break;
+    case 4:
+    $lat="";
+    $lon="";
+    break;
+    case 5:
+    $lat="";
+    $lon="";
+    break;
+    case 6:
+    $lat="";
+    $lon="";
+    break;
+    case 7:
+    $lat="";
+    $lon="";
+    break;
+    case 8:
+    $lat="";
+    $lon="";
+    break;
+    case 9:
+    $lat="";
+    $lon="";
+    break;
+    case 10:
+    $lat="";
+    $lon="";
+    break;
+    case 11:
+    $lat="";
+    $lon="";
+    break;
+    case 12:
+    $lat="";
+    $lon="";
+    break;
+    case 13:
+    $lat="";
+    $lon="";
+    break;
+    case 14:
+    $lat="";
+    $lon="";
+    break;
+    case 15:
+    $lat="";
+    $lon="";
+    break;
+    case 16:
+    $lat="";
+    $lon="";
+    break;
+    case 17:
+    $lat="";
+    $lon="";
+    break;
+    case 18:
+    $lat="";
+    $lon="";
+    break;
+    case 19:
+    $lat="";
+    $lon="";
+    break;
+    case 20:
+    $lat="";
+    $lon="";
+    break;
+    case 21:
+    $lat="";
+    $lon="";
+    break;
+    case 22:
+    $lat="";
+    $lon="";
+    break;
+    case 23:
+    $lat="";
+    $lon="";
+    break;
+    case 24:
+    $lat="";
+    $lon="";
+    break;
+    case 25:
+    $lat="";
+    $lon="";
+    break;
+    case 26:
+    $lat="";
+    $lon="";
+    break;
+
+  
+  default:
+    $lat="23.1340755";
+    $lon="-100.5197195";
+    break;
+}
+
+} 
+?>
+  
+<?php endif ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,29 +220,10 @@ var time=0;
 
 }
 
-function buscarLocacion(id)
-{
-  if(id>0)
-  {
-    window.open("busqueda.php?id="+id);
-  }
-}
+  
 </script>
 </head>
-<body onload="initialize();" style="background-color:black">
-<br>
-<label style="color:white">Buscar locación</label>
-<select onchange="buscarLocación(this.value);">
- <option value="0">Selecionar locacion</option> 
-<?php 
-$consulta = "SELECT * FROM locacion ";
-$datos=mysqli_query($conexion,$consulta);
-while ($fila=mysqli_fetch_array($datos)) {
-  echo '<option id="txt_buscar_mapa" value="'.$fila['id_locacion'].'">'.$fila['locacion'].'</option>';
-}
- ?>
-</select>
-<br><br>
+<body onload="initialize();">
  <div id="map_canvas" ></div>
 </body>
 </html>
