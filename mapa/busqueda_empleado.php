@@ -1,3 +1,17 @@
+<?php include "../mobile/conexion.php" ?>
+<?php 
+if(isset($_GET['id'])){
+  $consulta="SELECT lat,lon FROM empleado WHERE id_empleado=".$_GET['id'];
+  $datos=mysqli_query($conexion,$consulta);
+  if($fila=mysqli_fetch_array($datos))
+  {
+    $lat=$fila['lat'];
+    $lon=$fila['lon'];
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,9 +35,9 @@ var marcadores=new Array();
 //var textos=new Array();
 var time=0;
  function initialize() {
-   var punto = new google.maps.LatLng(23.1340755,-100.5197195);
+   var punto = new google.maps.LatLng(<?php echo $lat; ?>,<?php echo $lon; ?>);
    var myOptions = {
-     zoom: 5, //nivel de zoom para poder ver de cerca.
+     zoom: 13, //nivel de zoom para poder ver de cerca.
      center: punto,
      mapTypeId: google.maps.MapTypeId.ROADMAP //Tipo de mapa inicial, satélite para ver las pirámides
    }
@@ -31,7 +45,7 @@ var time=0;
      google.maps.Map.prototype.markers = new Array();
  
        // marcadores[0].setPosition(new google.maps.LatLng(19.3737678,-98.9813983));
-        <?php include "../mobile/conexion.php" ?>
+        
           <?php 
       
            date_default_timezone_set("Mexico/General");
@@ -98,47 +112,10 @@ var time=0;
 
 }
 
-function buscarLocacion(id)
-{
-  if(id>0)
-  {
-    window.open("busqueda_locacion.php?id="+id);
-  }
-}
-function buscarEmpleado(id)
-{
-  if(id>0)
-  {
-    window.open("busqueda_Empleado.php?id="+id);
-  }
-}
+  
 </script>
 </head>
-<body onload="initialize();" style="background-color:black">
-<br>
-<label style="color:white">Buscar locación</label>
-<select onchange="buscarLocacion(this.value);">
- <option value="0">Selecionar locacion</option> 
-<?php 
-$consulta = "SELECT * FROM locacion ";
-$datos=mysqli_query($conexion,$consulta);
-while ($fila=mysqli_fetch_array($datos)) {
-  echo '<option id="txt_buscar_mapa" value="'.$fila['id_locacion'].'">'.$fila['locacion'].'</option>';
-}
- ?>
-</select>
-<label style="color:white">Buscar Emppleado</label>
-<select onchange="buscarEmpleado(this.value);">
- <option value="0">Selecionar Empleado</option> 
-<?php 
-$consulta = "SELECT * FROM empleado ";
-$datos=mysqli_query($conexion,$consulta);
-while ($fila=mysqli_fetch_array($datos)) {
-  echo '<option id="txt_buscar_mapa" value="'.$fila['id_empleado'].'">'.$fila['nombre'].' '.$fila['apaterno'].' '.$fila['amaterno'].'</option>';
-}
- ?>
-</select>
-<br><br>
+<body onload="initialize();">
  <div id="map_canvas" ></div>
 </body>
 </html>

@@ -3,113 +3,128 @@ if(isset($_GET['id'])){
   $lat="";
   $lon="";
 switch ($_GET['id']) {
+    //Distrito FederaL
     case 1:
-    $lat="";
-    $lon="";
+    $lat="19.3907336";
+    $lon="-99.1436127";
     break;
+    //Merida
     case 2:
-    $lat="";
-    $lon="";
+    $lat="20.972843";
+    $lon="-89.632918";
     break;
+    //Ensenada BC
     case 3:
-    $lat="";
-    $lon="";
+    $lat="31.8402533";
+    $lon="-116.610074";
     break;
+    //Tijuana
     case 4:
-    $lat="";
-    $lon="";
+    $lat="32.4969499";
+    $lon="-116.9726224";
     break;
-    case 5:
-    $lat="";
-    $lon="";
-    break;
-    case 6:
-    $lat="";
-    $lon="";
-    break;
+    //Chihuahua
     case 7:
-    $lat="";
-    $lon="";
+    $lat="28.6716648";
+    $lon="-106.1908274";
     break;
+    //Mexicali
     case 8:
-    $lat="";
-    $lon="";
+    $lat="32.6132623";
+    $lon="-115.450291";
     break;
+    //Pozarica
     case 9:
-    $lat="";
-    $lon="";
+    $lat="20.5343213";
+    $lon="-97.4449087";
     break;
+    //Cuernavaca
     case 10:
-    $lat="";
-    $lon="";
+    $lat="18.9318816";
+    $lon="-99.240565";
     break;
+    //CD Juarez
     case 11:
-    $lat="";
-    $lon="";
+    $lat="31.6538628";
+    $lon="-106.4432072";
     break;
+    //Acapulco
     case 12:
-    $lat="";
-    $lon="";
+    $lat="16.8354901";
+    $lon="-99.8622709";
     break;
+    //Cancún
     case 13:
-    $lat="";
-    $lon="";
+    $lat="21.121445";
+    $lon="-86.8494402";
     break;
+    //Parral
     case 14:
-    $lat="";
-    $lon="";
+    $lat="26.9490009";
+    $lon="-105.6775866";
     break;
+    //Monterrey
     case 15:
-    $lat="";
-    $lon="";
+    $lat="25.648795";
+    $lon="-100.3030961";
     break;
+    //Oaxaca
     case 16:
-    $lat="";
-    $lon="";
+    $lat="17.163454";
+    $lon="-96.210067";
     break;
+    //Campeche
     case 17:
-    $lat="";
-    $lon="";
+    $lat="19.3305991";
+    $lon="-90.7947859";
     break;
+    //coatzacoalcos
     case 18:
-    $lat="";
-    $lon="";
+    $lat="18.134214";
+    $lon="-94.4629468";
+    $zoom="13";
     break;
+    //Chilpancingo
     case 19:
-    $lat="";
-    $lon="";
+    $lat="17.5477102";
+    $lon="-99.4974153";
     break;
+    //Lagos
     case 20:
     $lat="";
     $lon="";
     break;
+    //Villahermosa
     case 21:
-    $lat="";
-    $lon="";
+    $lat="17.9925296";
+    $lon="-92.9531211";
     break;
+    //Edo de mexico
     case 22:
-    $lat="";
-    $lon="";
+    $lat="19.3264047";
+    $lon="-99.6049788";
     break;
+    //delicias
     case 23:
-    $lat="";
-    $lon="";
+    $lat="18.9379556";
+    $lon="-99.2021258";
     break;
+    //Meoqui
     case 24:
-    $lat="";
-    $lon="";
+    $lat="28.2744074";
+    $lon="-105.4790369";
     break;
+    //Camargo
     case 25:
-    $lat="";
-    $lon="";
+    $lat="28.058209";
+    $lon="-104.4595833";
     break;
+    //Cuautemoc
     case 26:
-    $lat="";
-    $lon="";
+    $lat="19.432807";
+    $lon="-99.1532724";
     break;
-
-  
-  default:
+   default:
     $lat="23.1340755";
     $lon="-100.5197195";
     break;
@@ -117,8 +132,7 @@ switch ($_GET['id']) {
 
 } 
 ?>
-  
-<?php endif ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -143,9 +157,9 @@ var marcadores=new Array();
 //var textos=new Array();
 var time=0;
  function initialize() {
-   var punto = new google.maps.LatLng(23.1340755,-100.5197195);
+   var punto = new google.maps.LatLng(<?php echo $lat; ?>,<?php echo $lon; ?>);
    var myOptions = {
-     zoom: 5, //nivel de zoom para poder ver de cerca.
+     zoom: 11, //nivel de zoom para poder ver de cerca.
      center: punto,
      mapTypeId: google.maps.MapTypeId.ROADMAP //Tipo de mapa inicial, satélite para ver las pirámides
    }
