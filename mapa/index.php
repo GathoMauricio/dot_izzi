@@ -127,7 +127,7 @@ while ($fila=mysqli_fetch_array($datos)) {
 }
  ?>
 </select>
-<label style="color:white">Buscar Emppleado</label>
+<label style="color:white">Buscar Empleado</label>
 <select onchange="buscarEmpleado(this.value);">
  <option value="0">Selecionar Empleado</option> 
 <?php 
