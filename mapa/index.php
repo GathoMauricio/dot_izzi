@@ -72,11 +72,8 @@ var time=0;
           
           Concurrent.Thread.create(function(){
             while(1){
-              contador++;
               console.log(contador);
-              if(contador==10)
-              {
-                contador=0;
+              
                 console.log("Actualizado...");
                 
                 $.post("get_position.php",{},function(data){
@@ -89,7 +86,7 @@ var time=0;
                     
                 };
               });
-              }
+              
               
               Concurrent.Thread.sleep(1000);
             }
