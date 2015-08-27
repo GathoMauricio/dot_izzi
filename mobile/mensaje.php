@@ -3,9 +3,9 @@
 require "lib/Pusher.php";
 $pusher = PusherInstance::get_pusher();
 $pusher->trigger(
-'dot_mensaje'.$_POST['id'],
-$_POST['id'],
+'dot_mensaje',
+'mensaje',
 array('mensaje' => "Tienes una alerta!!!")
 );
-echo "Alerta enviada!!!".$_POST['id'];
+echo "Alerta enviada!!!";
  ?>
