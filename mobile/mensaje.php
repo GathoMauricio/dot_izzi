@@ -7,4 +7,5 @@ $pusher->trigger(
 'mensaje'.$_POST['id'],
 array('mensaje' => "Tienes una alerta!!!")
 );
+echo "Alerta enviada!!!";
  ?>

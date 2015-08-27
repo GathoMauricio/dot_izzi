@@ -111,9 +111,12 @@ function buscarEmpleado(id)
 }
 function enviarAlerta()
 {
+  id=$("#txt_id_alerta").prop("value");
   $.post("http://dotredes.dyndns.biz:18888/dot_izzi/mobile/mensaje.php",{
-    id:$("#txt_id_alerta").prop("value")
-  },function(data){});
+    id:id
+  },function(data){
+    alert(data);
+  });
 }
 </script>
 </head>
