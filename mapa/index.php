@@ -131,7 +131,7 @@ while ($fila=mysqli_fetch_array($datos)) {
  ?>
 </select>
 <label style="color:white">Buscar Empleado</label>
-<select onchange="buscarEmpleado(this.value);">
+<select style="width:200px" onchange="buscarEmpleado(this.value);">
  <option value="0">Selecionar Empleado</option> 
 <?php 
 $consulta = "SELECT * FROM empleado ";
@@ -142,13 +142,13 @@ while ($fila=mysqli_fetch_array($datos)) {
  ?>
 </select>
 <label style="color:white">Enviar alerta</label>
-<select>
- <option value="0">Enviar a todos</option> 
+<select style="width:200px" id="txt_id_alerta">
+ <option value="0" style="width:200px">Selectionar empleado</option> 
 <?php 
 $consulta = "SELECT * FROM empleado ";
 $datos=mysqli_query($conexion,$consulta);
 while ($fila=mysqli_fetch_array($datos)) {
-  echo '<option id="txt_id_alerta" value="'.$fila['id_empleado'].'">'.$fila['nombre'].' '.$fila['apaterno'].' '.$fila['amaterno'].'</option>';
+  echo '<option  value="'.$fila['id_empleado'].'">'.$fila['nombre'].' '.$fila['apaterno'].' '.$fila['amaterno'].'</option>';
 }
  ?>
 </select>
