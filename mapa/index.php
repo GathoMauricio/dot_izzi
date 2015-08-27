@@ -109,6 +109,12 @@ function buscarEmpleado(id)
     window.open("busqueda_Empleado.php?id="+id);
   }
 }
+function enviarAlerta()
+{
+  $.post("http://dotredes.dyndns.biz:18888/dot_izzi/mobile/mensaje.php",{
+    id:$("#txt_id_alerta").prop("value")
+  },function(data){});
+}
 </script>
 </head>
 <body onload="initialize();" style="background-color:black">
@@ -135,7 +141,20 @@ while ($fila=mysqli_fetch_array($datos)) {
 }
  ?>
 </select>
+<label style="color:white">Enviar alerta</label>
+<select>
+ <option value="0">Enviar a todos</option> 
+<?php 
+$consulta = "SELECT * FROM empleado ";
+$datos=mysqli_query($conexion,$consulta);
+while ($fila=mysqli_fetch_array($datos)) {
+  echo '<option id="txt_id_alerta" value="'.$fila['id_empleado'].'">'.$fila['nombre'].' '.$fila['apaterno'].' '.$fila['amaterno'].'</option>';
+}
+ ?>
+</select>
+<button onclick="enviarAlerta();">Eviar Alerta</button>
 <br><br>
+
  <div id="map_canvas" ></div>
 </body>
 </html>
