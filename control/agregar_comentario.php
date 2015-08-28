@@ -16,9 +16,16 @@ VALUES (".$id_expediente.",'".$_SESSION['login']."','".$comentario."','".$fecha.
 
 if(isset($_POST['id_empleado']))
 {
+$consultaEmpleado="SELECT * FROM empleado WHERE id_empleado=".$_POST['id_empleado'];
+$datos=mysqli_query($conexion,$consultaEmpleado);
+if($fila=mysqli_fetch_array($datos))
+{
+	$empleado=$fila['nombre'].' '.$fila['apaterno'].' '.$fila['amaterno'];
+	$foto=$fila['foto'];
+}	
 	$consulta="INSERT INTO comentarios 
 (id_publicacion,comentador,comentario,fecha,hora,foto_perfil) 
-VALUES (".$id_expediente.",'".$_POST['id_empleado']."','".$comentario."','".$fecha."','".$hora."','".$_SESSION['foto']."')";
+VALUES (".$id_expediente.",'".$empleado."','".$comentario."','".$fecha."','".$hora."','".$foto."')";
 }
 mysqli_query($conexion,$consulta);
  ?>
