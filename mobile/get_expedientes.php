@@ -31,7 +31,9 @@ while($fila=mysqli_fetch_array($datos))
 	}
 echo'
 <center>
-<p style="color:blue">Expediente: '.$fila['id_expediente'].'</p>
+<div class="contenido_inicio">
+            <center>
+                <p style="color:blue">Expediente: 00000</p>
                 <p style="color:red">Status: Pendiente</p>
             </center>
 
@@ -69,13 +71,13 @@ while($filaComentario=mysqli_fetch_array($datosComentario))
 {
 echo'
 <div class="contenido_inicio">
-            <div style ="float:right;padding:5px;"><a style="color:gray;" onclick=""><span class="icon-cross"></span></a></div>
-            <br/>
-            <a><img onclick="" src="img/logo.png" alt="DOT LOGO" width="60"  style="float:left"/></a>
-            <label class="lbl_nombre" ><a class="lbl_nombre" onclick="">Empleado que ha comentado.</a></label>
-            <label  class="lbl_datos">000-00-00 A las  00:00 Hrs.</label>
-            <p>Este ya es el comentario del empleado en cuestión</p>
-        </div>
+<div style ="float:right;padding:5px;"><a style="color:gray;" onclick=""><span class="icon-cross"></span></a></div>
+<br/>
+<a><img onclick="" src="img/logo.png" alt="DOT LOGO" width="60"  style="float:left"/></a>
+<label class="lbl_nombre" ><a class="lbl_nombre" onclick="">Empleado que ha comentado.</a></label>
+<label  class="lbl_datos">000-00-00 A las  00:00 Hrs.</label>
+<p>Este ya es el comentario del empleado en cuestión</p>
+</div>
 ';
 }
 }
