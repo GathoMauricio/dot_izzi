@@ -15,7 +15,7 @@ while($fila=mysqli_fetch_array($datos))
 	switch ($fila['id_estatus'])
 	{
 		case 1:
-            $estatus='<p style="color:red">Status: Pendiente</p>';
+            $estatus='<p style="color:#F78181">Estatus: Pendiente</p>';
 			$h_inicio="";
 			$h_final="";
 			$d_solucion="";
@@ -23,15 +23,15 @@ while($fila=mysqli_fetch_array($datos))
 			$diagnostico='';
             break;
 		case 2:
-            $estatus='<p style="color:yellow">Status: En proceso</p>';
+            $estatus='<p style="color:#F4FA58">Estatus: En proceso</p>';
 			$h_inicio='<br><b>Contacto: </b> '.$fila['h_inicio'].' Hrs.';
 			$h_final="";
 			$d_solucion="";
             $botonEstatus='<td onclick="cambiarEstatus('.$fila['id_expediente'].',3);" style="width:25%;border:solid 1px gray;"><span class="icon-checkmark2"></span><br/>Finalizar</td>';
-			$diagnostico='<label><b>Diagnóstico:</b></label><textarea style="width:100%" placeholder="Ingresar diagnóstico" id="txt_diagnostico_'.$fila['id_expediente'].'"></textarea>';
+			$diagnostico='<label><b>Diagnóstico:</b></label><textarea style="width:100%" placeholder="Ingresar diagnóstico" id="txt_diagnostico_'.$fila['id_expediente'].'">'.$fila['d_solucion'].'</textarea>';
             break;
 		case 3:
-            $estatus='<p style="color:green">Status: Finalizado</p>';
+            $estatus='<p style="color:#2EFE64">Estatus: Finalizado</p>';
 			$h_inicio='<br><b>Contacto: </b> '.$fila['h_inicio'].' Hrs.';
 			$h_final='<br><b>Finalizado: </b> '.$fila['h_final'].'. Hrs';
 			$d_solucion='<br><br><b>Diagnóstico: </b></b>'.$fila['d_solucion'].'';
