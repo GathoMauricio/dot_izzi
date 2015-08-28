@@ -90,7 +90,7 @@ echo'
 <div class="contenido_inicio">
 <div style ="float:right;padding:5px;"><a style="color:gray;" onclick=""><span class="icon-cross"></span></a></div>
 <br/>
-<a><img onclick="" src="img/logo.png" alt="DOT LOGO" width="60"  style="float:left"/></a>
+<a><img onclick="" src="http://dotredes.dyndns.biz:18888/dot_izzi/img/'.$filaComentario['foto_perfil'].'" alt="FOTO PERFIL" width="60"  style="float:left"/></a>
 <label class="lbl_nombre" ><a class="lbl_nombre" onclick="">'.$filaComentario['comentador'].'</a></label>
 <label  class="lbl_datos">'.$filaComentario['fecha'].' A las  '.$filaComentario['hora'].' Hrs.</label>
 <p>'.$filaComentario['comentario'].'</p>
