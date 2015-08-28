@@ -2,7 +2,7 @@
 include "conexion.php";
 $consulta="SELECT * FROM expediente e LEFT JOIN empleado em ON 
 e.id_tecnico=em.id_empleado
- WHERE e.id_tecnico=".$_POST['id_empleado'];
+ WHERE e.id_tecnico=".$_GET['id_empleado'];
 $datos=mysqli_query($conexion,$consulta);
 $h_inicio="";
 $h_final="";
@@ -10,7 +10,8 @@ $d_solucion="";
 
 while($fila=mysqli_fetch_array($datos))
 {
-	switch ($fila['id_estatus']) {
+	switch ($fila['id_estatus'])
+	{
 		case 1:
 			$h_inicio="";
 			$h_final="";
