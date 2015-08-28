@@ -75,7 +75,7 @@ echo'
                     <tr>
                         <td onclick="" style="width:25%;border:solid 1px gray;"><span class="icon-map2"></span><br/>Mapa</td>
                         '.$botonEstatus.'
-                        <td onclick="" style="width:25%;border:solid 1px gray;"><span class="icon-bubble2"></span><br/>Comentar</td>
+                        <td onclick="comentar('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-bubble2"></span><br/>Comentar</td>
                         <td onclick="" style="width:25%;border:solid 1px gray;"><span class="icon-attachment"></span><br/>Adjunto</td>
                     </tr>
                 </table>
