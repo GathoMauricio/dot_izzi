@@ -28,7 +28,7 @@ while($fila=mysqli_fetch_array($datos))
 			$h_final="";
 			$d_solucion="";
             $botonEstatus='<td onclick="cambiarEstatus('.$fila['id_expediente'].',3);" style="width:25%;border:solid 1px gray;"><span class="icon-checkmark2"></span><br/>Finalizar</td>';
-			$diagnostico='<label><b>Diagnóstico</b></label><textarea style="width:100%"></textarea>';
+			$diagnostico='<label><b>Diagnóstico:</b></label><textarea style="width:100%" placeholder="Ingresar diagnóstico" id="txt_diagnostico_'.$fila['id_expediente'].'"></textarea>';
             break;
 		case 3:
             $estatus='<p style="color:green">Status: Finalizado</p>';
@@ -64,6 +64,7 @@ echo'
                 <b>Dirección: </b>'.$fila['direccion_u'].'
                 <br/><br/>
                 <b>Problemática: </b>'.$fila['d_problema'].'
+                '.$diagnostico.'
                 '.$d_solucion.'
             </p>
         </div>
