@@ -6,4 +6,5 @@ $base_datos="dot";
 
 $conexion=mysqli_connect($host_bd,$usuario_bd,$contrasena_bd,$base_datos);
 mysqli_set_charset($conexion, "utf8");
+date_default_timezone_set("Mexico/General");
  ?>
