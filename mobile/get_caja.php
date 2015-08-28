@@ -2,7 +2,7 @@
 include "conexion.php";
 $consulta="SELECT * FROM expediente e LEFT JOIN empleado em ON 
 e.id_tecnico=em.id_empleado
- WHERE e.id_tecnico=".$_POST['id_empleado']." AND e.fecha='".date('Y-m-d')."'";
+ WHERE e.id_expediente=".$_POST['id_expediente'];
 $datos=mysqli_query($conexion,$consulta);
 $estatus="";
 $h_inicio="";
@@ -41,7 +41,7 @@ while($fila=mysqli_fetch_array($datos))
 		
 	}
 echo'
-<div id="caja_'.$fila['id_expediente'].'">
+
 <center>
 <div class="contenido_inicio">
             <center>
@@ -100,5 +100,5 @@ echo'
 echo'<br><br>';
 }
 echo '</center>';
-echo '</div>';
+
  ?>
