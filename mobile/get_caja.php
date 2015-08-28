@@ -84,11 +84,13 @@ echo'
 ';	
 $consultaComentario="SELECT * FROM comentarios WHERE id_publicacion=".$fila['id_expediente'];
 $datosComentario=mysqli_query($conexion,$consultaComentario);
+//Pendiente eliminar comentario
+//<div style ="float:right;padding:5px;"><a style="color:gray;" onclick="eliminarComentario('.$filaComentario['id_comentario'].')"><span class="icon-cross"></span>
 while($filaComentario=mysqli_fetch_array($datosComentario))
 {
 echo'
 <div class="contenido_inicio">
-<div style ="float:right;padding:5px;"><a style="color:gray;" onclick=""><span class="icon-cross"></span></a></div>
+</a></div>
 <br/>
 <a><img onclick="" src="http://dotredes.dyndns.biz:18888/dot_izzi/img/'.$filaComentario['foto_perfil'].'" alt="FOTO PERFL" width="60"  style="float:left"/></a>
 <label class="lbl_nombre" ><a class="lbl_nombre" onclick="">'.$filaComentario['comentador'].'</a></label>
