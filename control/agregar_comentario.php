@@ -13,5 +13,12 @@ $hora=date('H:i:s');
 $consulta="INSERT INTO comentarios 
 (id_publicacion,comentador,comentario,fecha,hora,foto_perfil) 
 VALUES (".$id_expediente.",'".$_SESSION['login']."','".$comentario."','".$fecha."','".$hora."','".$_SESSION['foto']."')";
+
+if(isset($_POST['id_empleado']))
+{
+	$consulta="INSERT INTO comentarios 
+(id_publicacion,comentador,comentario,fecha,hora,foto_perfil) 
+VALUES (".$id_expediente.",'".$_POST['id_empleado']."','".$comentario."','".$fecha."','".$hora."','".$_SESSION['foto']."')";
+}
 mysqli_query($conexion,$consulta);
  ?>
