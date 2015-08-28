@@ -8,7 +8,8 @@ $estatus="";
 $h_inicio="";
 $h_final="";
 $d_solucion="";
-
+$botonEstatus="";
+$diagnostico="";
 while($fila=mysqli_fetch_array($datos))
 {
 	switch ($fila['id_estatus'])
@@ -18,19 +19,25 @@ while($fila=mysqli_fetch_array($datos))
 			$h_inicio="";
 			$h_final="";
 			$d_solucion="";
-			break;
+            $botonEstatus='<td onclick="cambiarEstatus('.$fila['id_expediente'].',2);" style="width:25%;border:solid 1px gray;"><span class="icon-checkmark2"></span><br/>Contacto</td>';
+			$diagnostico='';
+            break;
 		case 2:
             $estatus='<p style="color:yellow">Status: En proceso</p>';
 			$h_inicio='<br><b>Contacto: </b> '.$fila['h_inicio'].' Hrs.';
 			$h_final="";
 			$d_solucion="";
-			break;
+            $botonEstatus='<td onclick="cambiarEstatus('.$fila['id_expediente'].',3);" style="width:25%;border:solid 1px gray;"><span class="icon-checkmark2"></span><br/>Finalizar</td>';
+			$diagnostico='<label><b>Diagnóstico</b></label><textarea style="width:100%"></textarea>';
+            break;
 		case 3:
             $estatus='<p style="color:green">Status: Finalizado</p>';
 			$h_inicio='<br><b>Contacto: </b> '.$fila['h_inicio'].' Hrs.';
 			$h_final='<br><b>Finalizado: </b> '.$fila['h_final'].'. Hrs';
 			$d_solucion='<br><br><b>Diagnóstico: </b></b>'.$fila['d_solucion'].'';
-			break;
+            $botonEstatus='<td onclick="cambiarEstatus('.$fila['id_expediente'].',2);" style="width:25%;border:solid 1px gray;"><span class="icon-checkmark2"></span><br/>Deshacer</td>';
+			$diagnostico="";
+            break;
 		
 	}
 echo'
@@ -65,7 +72,7 @@ echo'
                 <table>
                     <tr>
                         <td onclick="" style="width:25%;border:solid 1px gray;"><span class="icon-map2"></span><br/>Mapa</td>
-                        <td onclick="" style="width:25%;border:solid 1px gray;"><span class="icon-checkmark2"></span><br/>Estatus</td>
+                        '.$botonEstatus.'
                         <td onclick="" style="width:25%;border:solid 1px gray;"><span class="icon-bubble2"></span><br/>Comentar</td>
                         <td onclick="" style="width:25%;border:solid 1px gray;"><span class="icon-attachment"></span><br/>Adjunto</td>
                     </tr>
