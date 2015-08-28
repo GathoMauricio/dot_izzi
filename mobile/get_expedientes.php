@@ -2,7 +2,7 @@
 include "conexion.php";
 $consulta="SELECT * FROM expediente e LEFT JOIN empleado em ON 
 e.id_tecnico=em.id_empleado
- WHERE e.id_tecnico=".$_POST['id_empleado'];
+ WHERE e.id_tecnico=".$_POST['id_empleado']." AND ex.fecha='".date('Y-m-d')."'";
 $datos=mysqli_query($conexion,$consulta);
 $h_inicio="";
 $h_final="";
@@ -81,5 +81,5 @@ echo'
 ';
 }
 }
-echo '</center>';
+echo '</center><br>';
  ?>
