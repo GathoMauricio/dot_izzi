@@ -63,7 +63,7 @@ echo'
             </center>
         </div>
 ';	
-$consultaComentario="SELECT * FROM comentarios WHERE id_expediente=".$fila['id_publicacion'];
+$consultaComentario="SELECT * FROM comentarios WHERE id_publicacion=".$fila['id_expediente'];
 $datosComentario=mysqli_query($conexion,$consultaComentario);
 while($filaComentario=mysqli_fetch_array($datosComentario))
 {
