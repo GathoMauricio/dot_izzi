@@ -100,7 +100,8 @@ echo'
 ';
 }
 echo'<br><br>';
-}
 echo '</center>';
 echo '</div>';
+}
+
  ?>
