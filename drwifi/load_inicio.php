@@ -48,7 +48,7 @@ function initialize() {
 				lat:marcador.getPosition().lat(),
 				lon:marcador.getPosition().lng()
 				},function(data){
-					swal("Pocisión cambiada!","Este será el punto donde llegará nuestro técnico","success");
+					swal("posición cambiada!","Este será el punto donde llegará nuestro técnico","success");
 				});
   			});
 
@@ -61,9 +61,9 @@ function initialize() {
 	height: 300px;
 }
  </style>
- <label style="color:#FFF;">Para brindarle un mejor servicio hemos detectado su pocisión actual, 
+ <label style="color:#FFF;">Para brindarle un mejor servicio hemos detectado su posición actual, 
  	para cambiar el lugar donde se llevará acabo el servicio técnico por favor toque 2 veces seguidas 
- 	sobre el mapa para indicarnos la pocisión. 
+ 	sobre el mapa para indicarnos la posición. 
  	<br><br> También puedes 
  	<a href="#" onclick="comentar();" style="color:white;">AGREGAR DETALLES.</a></label><br><br>
  <center>
