@@ -27,6 +27,9 @@ while($fila=mysqli_fetch_array($datos))
             $btnMenu1='<td onclick="abrirMapa('.$fila['lat_expediente'].','.$fila['lon_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-map2"></span><br/>Mapa</td>';
             $btnMenu2='<td onclick="comentar('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-bubble2"></span><br/>Comentar</td>';
             $btnMenu3='';
+            $btnMenu4='';
+            $btnMenu5='';
+            $btnMenu6='';
             break;
 		case 2:
             $estatus='<p style="color:#F4FA58">Estatus: En proceso</p>';
@@ -35,20 +38,27 @@ while($fila=mysqli_fetch_array($datos))
 			$d_solucion="";
             $botonEstatus='<td onclick="cambiarEstatus('.$fila['id_expediente'].',3);" style="width:25%;border:solid 1px gray;"><span class="icon-checkmark2"></span><br/>Finalizar</td>';
 			$diagnostico='<label><b>Diagnóstico:</b></label><textarea style="width:100%" placeholder="Ingresar diagnóstico" id="txt_diagnostico_'.$fila['id_expediente'].'">'.$fila['d_solucion'].'</textarea>';
-            $btnMenu1='<td onclick="cambiarEstatus('.$fila['id_expediente'].',1);" style="width:25%;border:solid 1px gray;"><span class="icon-cross"></span><br/>Deshacer</td>';
+            $btnMenu1='<td onclick="cambiarEstatus('.$fila['id_expediente'].',1);" style="width:25%;border:solid 1px gray;"><span class="icon-undo"></span><br/>Deshacer</td>';
             $btnMenu2='<td onclick="comentar('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-bubble2"></span><br/>Comentar</td>';
-            $btnMenu3='<td onclick="adjuntar('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-attachment"></span><br/>Adjuntar</td>';
+            $btnMenu3='<td onclick="adjuntar('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-camera"></span><br/>Adjuntar</td>';
+            $btnMenu4='<td onclick="encuesta('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-star-half"></span><br/>Encuesta</td>';
+            $btnMenu5='<td onclick="firma('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-pen"></span><br/>Firma</td>';
+            $btnMenu6='<td onclick="documentacion();" style="width:25%;border:solid 1px gray;"><span class="icon-folder-open"></span><br/>Archivos</td>';
+            $btnMenu7='<td onclick="verAdjuntos('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-images"></span><br/>Ver</td>';
             break;
 		case 3:
             $estatus='<p style="color:#2EFE64">Estatus: Finalizado</p>';
 			$h_inicio='<br><b>Contacto: </b> '.$fila['h_inicio'].' Hrs.';
 			$h_final='<br><b>Finalizado: </b> '.$fila['h_final'].'. Hrs';
 			$d_solucion='<br><br><b>Diagnóstico: </b></b>'.$fila['d_solucion'].'';
-            $botonEstatus='<td onclick="cambiarEstatus('.$fila['id_expediente'].',2);" style="width:25%;border:solid 1px gray;"><span class="icon-cross"></span><br/>Deshacer</td>';
+            $botonEstatus='<td onclick="cambiarEstatus('.$fila['id_expediente'].',2);" style="width:25%;border:solid 1px gray;"><span class="icon-undo"></span><br/>Deshacer</td>';
 			$diagnostico="";
             $btnMenu1='<td onclick="comentar('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-bubble2"></span><br/>Comentar</td>';
-            $btnMenu2='<td onclick="verAdjuntos();" style="width:25%;border:solid 1px gray;"><span class="icon-attachment"></span><br/>Ver adjuntos</td>';
+            $btnMenu2='<td onclick="verAdjuntos('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-camera"></span><br/>Ver adjuntos</td>';
             $btnMenu3='';
+            $btnMenu4='';
+            $btnMenu5='';
+            $btnMenu6='';
             break;
 		
 	}
@@ -89,6 +99,12 @@ echo'
                         '.$btnMenu1.'
                         '.$btnMenu2.'
                         '.$btnMenu3.'
+                    </tr>
+                    <tr>
+                        '.$btnMenu4.'
+                        '.$btnMenu5.'
+                        '.$btnMenu6.'
+                        '.$btnMenu7.'
                     </tr>
                 </table>
             </center>
