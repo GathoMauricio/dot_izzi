@@ -23,4 +23,7 @@ $consulta="INSERT INTO respuesta (id_expediente,r1,r2,r3,r4,r5,r6,r7,r8) VALUES
 '".$r7."',
 '".$r8."')";
 mysqli_query($conexion,$consulta);
+
+$consulta="UPDATE expediente SET id_estatus_encuesta=2 WHERE id_expediente=".$expediente;
+mysqli_query($conexion,$consulta);
  ?>
