@@ -30,6 +30,7 @@ while($fila=mysqli_fetch_array($datos))
             $btnMenu4='';
             $btnMenu5='';
             $btnMenu6='';
+            $btnMenu7='';
             break;
 		case 2:
             $estatus='<p style="color:#F4FA58">Estatus: En proceso</p>';
@@ -55,10 +56,11 @@ while($fila=mysqli_fetch_array($datos))
 			$diagnostico="";
             $btnMenu1='<td onclick="comentar('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-bubble2"></span><br/>Comentar</td>';
             $btnMenu2='<td onclick="verAdjuntos('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-camera"></span><br/>Ver adjuntos</td>';
-            $btnMenu3='';
+            $btnMenu3='<td onclick="verFirma('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-pen"></span><br/>Ver firma</td>';
             $btnMenu4='';
             $btnMenu5='';
             $btnMenu6='';
+            $btnMenu7='';
             break;
 		
 	}

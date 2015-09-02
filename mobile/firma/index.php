@@ -1,7 +1,9 @@
-﻿﻿<!DOCTYE html>
+﻿﻿<?php header('Access-Control-Allow-Origin: *'); ?> 
+<!DOCTYE html>
 <html>
 <head>
 	<title>Touch Paint</title>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<link rel="shortcut icon" href="favicon.ico" />
@@ -35,16 +37,13 @@
 			<table style="width:100%">
 		<tr>
 			<td><button onclick="guardar();">Guardar</button></td>
-			<td><button onclick="limpiar();">Limpiar</button></td>
 			<td><button onclick="cancelar();">Cancelar</button></td>
 		</tr>
 	</table>
 		</section>
 	</div>
 	<script type="text/javascript">
-		function limpiar(){
-			window.location="index.php";
-		}
+		
 		function cancelar(){
 			window.close();
 		}
@@ -56,10 +55,13 @@
 				text:'<img src="" id="img_firma" width="30%">',
 				showCancelButton: true
 			},function(){
-				$.post("test.php",{
-					imagen:document.getElementById('img_firma').src
+				var expediente='<?php echo $_GET["exp"]; ?>';
+				$.post("img_firmas/crear_firma.php",{
+					imagen:document.getElementById('img_firma').src,
+					expediente:expediente
 				},function(data){
-					alert(data);
+					alert("La firma se almacenó con éxito "+data);
+					window.close();
 				});
 			});
 			var datos = document.getElementById('flexBox').toDataURL();
