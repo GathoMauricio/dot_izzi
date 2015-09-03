@@ -62,8 +62,6 @@ var time=0;
             icon:ico,
             title:rol+"<?php echo $fila['nombre']." ".$fila['apaterno']." ".$fila['amaterno']; ?>\n Ultima conexión: <?php echo $fila['fecha_conexion']; ?> a las <?php echo $fila['hora_conexion']; ?> Hrs\nAproximación: "+aprox+" Metros"
            }));
-            var infowindow = new google.maps.InfoWindow({ content: "<?php echo $fila['nombre']; ?>" }); 
-            infowindow.open(map, marcador);
           <?php  } ?>//end while sql
 
           for (var i = 0; i < marcadores.length; i++) {
@@ -86,7 +84,7 @@ var time=0;
                     marcadores[i].setPosition(new google.maps.LatLng(json[i].lat,json[i].lon));
                     marcadores[i].setTitle(rol+json[i].nombre+"\nUltima conexión: "+json[i].fecha+" a las "+json[i].hora+" Hrs.\nAproximación: "+json[i].aprox+" Metros");
                     var infowindow = new google.maps.InfoWindow({ content: json[i].nombre}); 
-                    infowindow.open(map, marcador);
+                    infowindow.open(map, marcadores[i]);
                 };
               });
               
