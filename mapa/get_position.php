@@ -8,7 +8,7 @@ $consulta = "SELECT * FROM empleado e LEFT JOIN usuario u ON e.id_usuario=u.id_u
 $datos=mysqli_query($conexion,$consulta);
 while($fila=mysqli_fetch_array($datos)){
  $empleados[]=array(
- 	"nombre"=>$fila['nombre']." ".$fila['apaterno']." ".$fila['amaterno'],
+ 	"nombre"=>$fila['nombre'],
  	"fecha"=>$fila['fecha_conexion'],
  	"hora"=>$fila['hora_conexion'],
  	"lat"=>$fila['lat'],
