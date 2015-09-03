@@ -83,8 +83,8 @@ var time=0;
                 for (var i =  0; i < json.length; i++) {
                     marcadores[i].setPosition(new google.maps.LatLng(json[i].lat,json[i].lon));
                     marcadores[i].setTitle(rol+json[i].nombre+"\nUltima conexión: "+json[i].fecha+" a las "+json[i].hora+" Hrs.\nAproximación: "+json[i].aprox+" Metros");
-                    var infowindow = new google.maps.InfoWindow({ content: json[i].nombre}); 
-                    infowindow.open(map, marcadores[i]);
+                    //var infowindow = new google.maps.InfoWindow({ content: json[i].nombre}); 
+                    //infowindow.open(map, marcadores[i]);
                 };
               });
               
