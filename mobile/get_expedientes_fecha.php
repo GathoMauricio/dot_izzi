@@ -10,36 +10,60 @@ $h_final="";
 $d_solucion="";
 $botonEstatus="";
 $diagnostico="";
+$btnMenu1="";
+$btnMenu2="";
+$btnMenu3="";
 while($fila=mysqli_fetch_array($datos))
 {
-	switch ($fila['id_estatus'])
-	{
-		case 1:
+    switch ($fila['id_estatus'])
+    {
+        case 1:
             $estatus='<p style="color:#F78181">Estatus: Pendiente</p>';
-			$h_inicio="";
-			$h_final="";
-			$d_solucion="";
+            $h_inicio="";
+            $h_final="";
+            $d_solucion="";
             $botonEstatus='<td onclick="cambiarEstatus('.$fila['id_expediente'].',2);" style="width:25%;border:solid 1px gray;"><span class="icon-checkmark2"></span><br/>Contacto</td>';
-			$diagnostico='';
+            $diagnostico='';
+            $btnMenu1='<td onclick="abrirMapa('.$fila['lat_expediente'].','.$fila['lon_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-map2"></span><br/>Mapa</td>';
+            $btnMenu2='<td onclick="comentar('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-bubble2"></span><br/>Comentar</td>';
+            $btnMenu3='';
+            $btnMenu4='';
+            $btnMenu5='';
+            $btnMenu6='';
+            $btnMenu7='';
             break;
-		case 2:
+        case 2:
             $estatus='<p style="color:#F4FA58">Estatus: En proceso</p>';
-			$h_inicio='<br><b>Contacto: </b> '.$fila['h_inicio'].' Hrs.';
-			$h_final="";
-			$d_solucion="";
+            $h_inicio='<br><b>Contacto: </b> '.$fila['h_inicio'].' Hrs.';
+            $h_final="";
+            $d_solucion="";
             $botonEstatus='<td onclick="cambiarEstatus('.$fila['id_expediente'].',3);" style="width:25%;border:solid 1px gray;"><span class="icon-checkmark2"></span><br/>Finalizar</td>';
-			$diagnostico='<label><b>Diagnóstico:</b></label><textarea style="width:100%" placeholder="Ingresar diagnóstico" id="txt_diagnostico_'.$fila['id_expediente'].'">'.$fila['d_solucion'].'</textarea>';
+            $diagnostico='<label><b>Diagnóstico:</b></label><textarea style="width:100%" placeholder="Ingresar diagnóstico" id="txt_diagnostico_'.$fila['id_expediente'].'">'.$fila['d_solucion'].'</textarea>';
+            $btnMenu1='<td onclick="cambiarEstatus('.$fila['id_expediente'].',1);" style="width:25%;border:solid 1px gray;"><span class="icon-undo"></span><br/>Deshacer</td>';
+            $btnMenu2='<td onclick="comentar('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-bubble2"></span><br/>Comentar</td>';
+            $btnMenu3='<td onclick="adjuntar('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-camera"></span><br/>Adjuntar</td>';
+            $btnMenu4='<td onclick="encuesta('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-star-half"></span><br/>Encuesta</td>';
+            $btnMenu5='<td onclick="firma('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-pen"></span><br/>Firma</td>';
+            $btnMenu6='<td onclick="documentacion();" style="width:25%;border:solid 1px gray;"><span class="icon-folder-open"></span><br/>Archivos</td>';
+            $btnMenu7='<td onclick="verAdjuntos('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-images"></span><br/>Ver</td>';
             break;
-		case 3:
+        case 3:
             $estatus='<p style="color:#2EFE64">Estatus: Finalizado</p>';
-			$h_inicio='<br><b>Contacto: </b> '.$fila['h_inicio'].' Hrs.';
-			$h_final='<br><b>Finalizado: </b> '.$fila['h_final'].'. Hrs';
-			$d_solucion='<br><br><b>Diagnóstico: </b></b>'.$fila['d_solucion'].'';
-            $botonEstatus='<td onclick="cambiarEstatus('.$fila['id_expediente'].',2);" style="width:25%;border:solid 1px gray;"><span class="icon-checkmark2"></span><br/>Deshacer</td>';
-			$diagnostico="";
+            $h_inicio='<br><b>Contacto: </b> '.$fila['h_inicio'].' Hrs.';
+            $h_final='<br><b>Finalizado: </b> '.$fila['h_final'].'. Hrs';
+            $d_solucion='<br><br><b>Diagnóstico: </b></b>'.$fila['d_solucion'].'';
+            $botonEstatus='<td onclick="cambiarEstatus('.$fila['id_expediente'].',2);" style="width:25%;border:solid 1px gray;"><span class="icon-undo"></span><br/>Deshacer</td>';
+            $diagnostico="";
+            $btnMenu1='<td onclick="comentar('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-bubble2"></span><br/>Comentar</td>';
+            $btnMenu2='<td onclick="verAdjuntos('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-camera"></span><br/>Ver adjuntos</td>';
+            $btnMenu3='<td onclick="verFirma('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-pen"></span><br/>Ver firma</td>';
+            $btnMenu4='';
+            $btnMenu5='';
+            $btnMenu6='';
+            $btnMenu7='';
             break;
-		
-	}
+        
+    }
 echo'
 <div id="caja_'.$fila['id_expediente'].'">
 <center>
@@ -73,15 +97,21 @@ echo'
             <center>
                 <table>
                     <tr>
-                        <td onclick="abrirMapa('.$fila['lat_expediente'].','.$fila['lon_expediente'].');"  style="width:25%;border:solid 1px gray;"><span class="icon-map2"></span><br/>Mapa</td>
                         '.$botonEstatus.'
-                        <td onclick="comentar('.$fila['id_expediente'].');" style="width:25%;border:solid 1px gray;"><span class="icon-bubble2"></span><br/>Comentar</td>
-                        <td onclick="" style="width:25%;border:solid 1px gray;"><span class="icon-attachment"></span><br/>Adjunto</td>
+                        '.$btnMenu1.'
+                        '.$btnMenu2.'
+                        '.$btnMenu3.'
+                    </tr>
+                    <tr>
+                        '.$btnMenu4.'
+                        '.$btnMenu5.'
+                        '.$btnMenu6.'
+                        '.$btnMenu7.'
                     </tr>
                 </table>
             </center>
         </div>
-';	
+';  
 $consultaComentario="SELECT * FROM comentarios WHERE id_publicacion=".$fila['id_expediente'];
 $datosComentario=mysqli_query($conexion,$consultaComentario);
 //Pendiente eliminar comentarios
