@@ -48,10 +48,10 @@ var time=0;
           if("<?php echo $fila['id_rol']; ?>"==2)
           {
             ico="ico_g.png";
-            rol="Gerente: ";
+            rol="";
           }else{
             ico="ico_t.png";
-            rol="Técnico: ";
+            rol="";
           }
 
             marcadores.add(new google.maps.Marker({
