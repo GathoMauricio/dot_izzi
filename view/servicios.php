@@ -92,6 +92,7 @@ while($fila=mysqli_fetch_array($datos)){
 	echo '<div class="publicacion" id="pub_'.$fila['id_expediente'].'">
 	<button class="btn btn-info" title="Ver imagen" onclick="verImagen('.$fila['id_expediente'].');"><span class="glyphicon glyphicon-picture"></span></button>
 	<button class="btn btn-warning" title="Ver encuesta" onclick="verEncuesta('.$fila['id_expediente'].');"><span class="glyphicon glyphicon-star"></span></button>
+	<button class="btn btn-info" title="Ver firma del cliente" onclick="verFirma('.$fila['id_expediente'].');"><span class="glyphicon glyphicon-pushpin"></span></button>
 	<button class="btn btn-success" title="Crear PDF" onclick="crearPDF('.$fila['id_expediente'].');"><span class="glyphicon glyphicon-print"></span></button>
 	<button class="btn btn-default" title="Editar servicio" onclick="editarServicio(this.id);" id="'.$fila['id_expediente'].'"><span class="glyphicon glyphicon-pencil"  title="Editar servicio"></span></button>
 	'.$boton_pago.'

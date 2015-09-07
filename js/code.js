@@ -443,6 +443,14 @@ function verImagen(id)
 	});
 	
 }
+function verFirma(id)
+{
+	$.post("../control/get_firma.php",{expediente:id},function(data){  
+	$("#imagen_firma").html(data);
+	$("#modal-ver-firma").modal();
+	});
+	
+}
 function crearPDF(expediente)
 {
 	window.open("../control/crear_pdf.php?expediente="+expediente,"IZZI TELECOM", "width=500 , height = 700");
