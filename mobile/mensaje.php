@@ -5,7 +5,7 @@ $pusher = PusherInstance::get_pusher();
 $pusher->trigger(
 'dot_mensaje',
 'mensaje'.$_POST['id'],
-array('mensaje' => "Tienes una alerta!!!")
+array('mensaje' => "Favor de actualizar la aplicación!!!")
 );
 echo "Alerta enviada!!!";
  ?>
