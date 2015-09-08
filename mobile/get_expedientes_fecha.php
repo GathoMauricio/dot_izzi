@@ -16,11 +16,11 @@ if($rol<3)
 {
 $consulta="SELECT * FROM expediente e LEFT JOIN empleado em 
 ON e.id_tecnico=em.id_empleado 
-WHERE e.fecha='".$_POST['fecha']."'";
+WHERE e.fecha='".$_POST['fecha']."' ORDER BY e.horario1";
 }else{
 $consulta="SELECT * FROM expediente e LEFT JOIN empleado em 
 ON e.id_tecnico=em.id_empleado 
-WHERE e.id_tecnico=".$_POST['id_empleado']." AND e.fecha='".$_POST['fecha']."'";
+WHERE e.id_tecnico=".$_POST['id_empleado']." AND e.fecha='".$_POST['fecha']."' ORDER BY e.horario1";
 }
 
 $datos=mysqli_query($conexion,$consulta);
