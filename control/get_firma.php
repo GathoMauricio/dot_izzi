@@ -8,7 +8,7 @@ $datos=mysqli_query($conexion,$consulta);
 while($fila=mysqli_fetch_array($datos))
 {
 	if(strlen($fila['firma']) > 0)
-	echo '<img id="img_servicio" src="http://dotredes.dyndns.biz:18888/dot_izzi/mobile/firma/img_firmas/'.$fila['firma'].'">';
+	echo '<img id="img_servicio" src="../mobile/firma/img_firmas/'.$fila['firma'].'">';
 	else echo '<label>Este expediente aún no tiene firma!!!</label>';
 }
 mysqli_close($conexion);

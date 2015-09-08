@@ -35,7 +35,7 @@ var time=0;
           <?php 
       
            date_default_timezone_set("Mexico/General");
-           $consulta = "SELECT * FROM empleado e LEFT JOIN usuario u ON e.id_usuario=u.id_usuario WHERE u.id_rol=2 OR u.id_rol=3 ORDER BY e.id_empleado";
+           $consulta = "SELECT * FROM empleado e LEFT JOIN usuario u ON e.id_usuario=u.id_usuario WHERE u.id_rol=2 OR u.id_rol=3 AND fecha_conexion='".date('Y-m-d')."' ORDER BY e.id_empleado";
            $datos=mysqli_query($conexion,$consulta);
            while($fila=mysqli_fetch_array($datos)){
           ?>

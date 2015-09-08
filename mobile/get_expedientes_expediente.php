@@ -1,8 +1,31 @@
 <?php 
 include "conexion.php";
-$consulta="SELECT * FROM expediente e LEFT JOIN empleado em ON 
+
+/*$consulta="SELECT * FROM expediente e LEFT JOIN empleado em ON 
 e.id_tecnico=em.id_empleado
  WHERE e.id_tecnico=".$_POST['id_empleado']." AND e.id_expediente='".$_POST['expediente']."'";
+*/
+
+ $consulta="SELECT * FROM empleado e LEFT JOIN usuario u 
+ON e.id_usuario=u.id_usuario WHERE e.id_empleado=".$_POST['id_empleado'];
+$datos=mysqli_query($conexion,$consulta);
+
+if($fila=mysqli_fetch_array($datos))
+{
+    $rol=$fila['id_rol'];
+}
+
+if($rol<3)
+{
+$consulta="SELECT * FROM expediente e LEFT JOIN empleado em 
+ON e.id_tecnico=em.id_empleado 
+WHERE  e.id_expediente='".$_POST['expediente']."'";
+}else{
+$consulta="SELECT * FROM expediente e LEFT JOIN empleado em 
+ON e.id_tecnico=em.id_empleado 
+WHERE e.id_tecnico=".$_POST['id_empleado']." AND  e.id_expediente='".$_POST['expediente']."'";
+}
+
 $datos=mysqli_query($conexion,$consulta);
 $estatus="";
 $h_inicio="";

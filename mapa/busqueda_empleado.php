@@ -49,7 +49,7 @@ var time=0;
           <?php 
       
            date_default_timezone_set("Mexico/General");
-           $consulta = "SELECT * FROM empleado e LEFT JOIN usuario u ON e.id_usuario=u.id_usuario WHERE u.id_rol=2 OR u.id_rol=3 ORDER BY e.id_empleado";
+           $consulta = "SELECT * FROM empleado e LEFT JOIN usuario u ON e.id_usuario=u.id_usuario WHERE u.id_rol=2 OR u.id_rol=3 AND fecha_conexion='".date('Y-m-d')."' ORDER BY e.id_empleado";
            $datos=mysqli_query($conexion,$consulta);
            while($fila=mysqli_fetch_array($datos)){
           ?>
@@ -90,13 +90,15 @@ var time=0;
                 contador=0;
                 console.log("Actualizado...");
                 
-                $.post("get_position.php",{},function(data){
+                $.post("get_position.php",{
+                  id_empleado:<?php echo $_GET['id'] ?>
+                },function(data){
                 
                 var json = eval(data);
                 datos=json;
                 for (var i =  0; i < json.length; i++) {
                     marcadores[i].setPosition(new google.maps.LatLng(json[i].lat,json[i].lon));
-                    marcadores[i].setTitle(rol+json[i].nombre+"\nUltima conexión: "+json[i].fecha+" a las "+json[i].hora+" Hrs.\nAproximación: "+json[i].aprox+" Metros");
+                    marcadores[i].setTitle(json[i].nombre+"\nUltima conexión: "+json[i].fecha+" a las "+json[i].hora+" Hrs.\nAproximación: "+json[i].aprox+" Metros");
                     
                 };
               });
