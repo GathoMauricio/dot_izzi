@@ -36,8 +36,10 @@ $diagnostico="";
 $btnMenu1="";
 $btnMenu2="";
 $btnMenu3="";
+$costo="";
 while($fila=mysqli_fetch_array($datos))
 {
+
     switch ($fila['id_estatus'])
     {
         case 1:
@@ -103,7 +105,6 @@ echo'
                 '.$h_inicio.'
                 '.$h_final.'
                 <br/><b> En:</b> '.$fila['locacion'].'.
-                <br/><b>Costo:</b> $'.$fila['costo'].'.
                 <br/><b>Solicitado por:</b> '.$fila['solicitud'].'.
                 <br/><b>Capturado por:</b> '.$fila['capturista'].'.
 

@@ -80,7 +80,6 @@ echo'
                 '.$h_inicio.'
                 '.$h_final.'
                 <br/><b> En:</b> '.$fila['locacion'].'.
-                <br/><b>Costo:</b> $'.$fila['costo'].'.
                 <br/><b>Solicitado por:</b> '.$fila['solicitud'].'.
                 <br/><b>Capturado por:</b> '.$fila['capturista'].'.
 
