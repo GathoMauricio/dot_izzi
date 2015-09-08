@@ -864,3 +864,12 @@ function cargarPendientesTerminados()
 	$("#contenedor_pendientes_admin").html("<img src='../img/load_bar.gif' id='barra'>");
 	$("#contenedor_pendientes_admin").load("cargar_pendientes_admin2.php");
 }
+function cambiarTecnico(tecnico,expediente)
+{
+	$.post("../control/cambiar_tecnico.php",{
+		id_tecnico:tecnico,
+		id_expediente:expediente
+	},function(data){
+		alert(data);
+	});
+}

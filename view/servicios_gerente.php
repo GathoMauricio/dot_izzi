@@ -115,8 +115,26 @@ while($fila=mysqli_fetch_array($datos)){
 	echo ' 
 		<tr class="'.$color_estatus_ike.'">
 		<th>'.$fila['id_expediente'].'</th>
-		<td>'.$fila['fecha'].'</td>
-		<td>'.$fila['nombre'].' '.$fila['apaterno'].' '.$fila['amaterno'].'</td>
+		<td>'.$fila['fecha'].'</td>';
+
+		//<td>'.$fila['nombre'].' '.$fila['apaterno'].' '.$fila['amaterno'].'</td>
+		$consultaTecnico="SELECT * FROM empleado e LEFT JOIN usuario u
+		ON e.id_usuario=u.id_usuario
+		 WHERE u.id_rol=3 AND localidad='".$fila['locacion']."'";
+		$datosTecnico=mysqli_query($conexion,$consultaTecnico);
+		echo '<td><select onchange="cambiarTecnico(this.value,'.$fila['id_expediente'].')">';
+		while($filaTecnico=mysqli_fetch_array($datosTecnico))
+		{
+			if($filaTecnico['id_empleado']==$fila['id_tecnico'])
+			{
+				echo'<option value="'.$filaTecnico['id_empleado'].'" selected>'.$filaTecnico['nombre'].' '.$filaTecnico['apaterno'].'</option>';
+			}
+			else{
+				echo'<option value="'.$filaTecnico['id_empleado'].'" >'.$filaTecnico['nombre'].' '.$filaTecnico['apaterno'].'</option>';
+			}
+		}
+		echo '</select></td>';
+		echo '
 		<td>'.$fila['capturista'].'</td>
 		<td>'.$fila['horario1'].' / '.$fila['horario2'].'</td>
 		<td><center>'.$estatus_ike.'</center></td>
