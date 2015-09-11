@@ -92,6 +92,19 @@ if($fila=mysqli_fetch_array($datos))
 }
 
 mysqli_close($conexion);
+
+header('Access-Control-Allow-Origin: *');
+require "../mobile/lib/Pusher.php";
+
+$pusher = PusherInstance::get_pusher();
+$pusher->trigger(
+'dot_mensaje',
+'mensaje'.$tecnico,
+array('mensaje' => "Se te ha asignado el expediente ".$expediente,
+	 'expediente'=>$expediente)
+);
+echo "Alerta enviada!!!";
+
 header("Location: ../view/nuevo_servicio.php");
  ?>
 

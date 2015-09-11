@@ -48,7 +48,7 @@ function init()
 	$("#contenedor_servicios_agendados").html("<img src='../img/load_bar.gif' id='barra'>");
 	$("#contenedor_servicios_agendados").load("servicios_agendados.php");
 	
-	var pusher = new Pusher('23a70ffc13384093765d');
+	var pusher = new Pusher('6f728ab7f8ef55d211e3');
 	var canal = pusher.subscribe('canal_notificacion');
 	canal.bind('nueva_notificacion',function(data){
 			$("#txt_notificacion").text(data.mensaje);

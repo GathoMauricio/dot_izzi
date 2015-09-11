@@ -24,5 +24,33 @@ switch ($estatus) {
 		break;	
 }
 mysqli_query($conexion,$consulta);
+$consulta="SELECT * FROM expediente ex LEFT JOIN empleado e 
+ON ex.id_tecnico=e.id_empleado WHERE ex.id_expediente=".$expediente;
+$datos=mysqli_query($conexion,$consulta);
+if($fila=mysqli_fetch_array($datos))
+{
+	switch ($fila['id_estatus']) {
+		case 1:
+			$mensaje="MOVIL: \n".$fila['nombre']." ".$fila['apaterno']." Ha puesto el estatus del expediente ".$fila['id_expediente']." en Pendiente";
+			break;
+		case 2:
+			$mensaje="MOVIL:\n".$fila['nombre']." ".$fila['apaterno']." Ha puesto el estatus del expediente ".$fila['id_expediente']." en Proceso";
+			break;
+		case 3:
+			$mensaje="MOVIL: \n".$fila['nombre']." ".$fila['apaterno']." Ha puesto el estatus del expediente ".$fila['id_expediente']." en Finalizado";
+			break;
+		
+	}
+}
+
+require 'Pusher.php';
+
+$pusher=PusherInstance::get_pusher();
+
+$pusher->trigger(
+'canal_notificacion',
+'nueva_notificacion',
+array('mensaje' => $mensaje)
+);
 mysqli_close($conexion);
  ?>

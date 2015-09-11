@@ -28,4 +28,36 @@ if($fila=mysqli_fetch_array($datos))
 VALUES (".$id_expediente.",'".$empleado."','".$comentario."','".$fecha."','".$hora."','".$foto."')";
 }
 mysqli_query($conexion,$consulta);
+
+
+
+header('Access-Control-Allow-Origin: *');
+
+
+$consulta="SELECT * FROM expediente WHERE id_expediente=".$id_expediente;
+$datos=mysqli_query($conexion,$consulta);
+if($fila=mysqli_fetch_array($datos))
+{
+	$canal=$fila['id_tecnico'];
+}
+require "Pusher.php";
+$pusher2 = PusherInstance::get_pusher();
+$pusher2->trigger(
+'dot_mensaje',
+'mensaje'.$canal,
+array('mensaje' => "Se ha agregado un nuevo comentario en el expediente ".$id_expediente,
+	 'expediente'=>$id_expediente)
+);
+
+$pusher2 = PusherInstance::get_pusher();
+$pusher2->trigger(
+'canal_notificacion',
+'nueva_notificacion',
+array('mensaje' => "Se ha agregado un nuevo comentario en el expediente ".$id_expediente,
+	 'expediente'=>$id_expediente)
+);
+
+
+echo "Alerta enviada!!!";
+
  ?>

@@ -13,15 +13,15 @@ session_start();
 $mensaje="";
 if(isset($_POST['solucion']))
 {
-$mensaje = $_SESSION['login']." ha ".$_POST['tipo']." con el Expediente ".$_POST['expediente'] ."\nDiagnóstico: ".$_POST['solucion'];
+$mensaje = "WEB: ".$_SESSION['login']." ha ".$_POST['tipo']." con el Expediente ".$_POST['expediente'] ."\nDiagnóstico: ".$_POST['solucion'];
 $mensaje = wordwrap($mensaje, 70, "\r\n");
 }else
 {
 	if(isset($_POST['comentario']))
 	{
-		$mensaje = $_SESSION['login']." ha ".$_POST['tipo']." con el Expediente ".$_POST['expediente'] ."\nComentario: ".$_POST['comentario'];
+		$mensaje = "WEB: ".$_SESSION['login']." ha ".$_POST['tipo']." con el Expediente ".$_POST['expediente'] ."\nComentario: ".$_POST['comentario'];
 	}else{
-			$mensaje = $_SESSION['login']." ha ".$_POST['tipo']." con el Expediente ".$_POST['expediente'] ;	
+			$mensaje = "WEB: ".$_SESSION['login']." ha ".$_POST['tipo']." con el Expediente ".$_POST['expediente'] ;	
 		 }
 }
 
