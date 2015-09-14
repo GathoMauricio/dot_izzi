@@ -136,9 +136,6 @@ echo'
 ';	
 $consultaComentario="SELECT * FROM comentarios WHERE id_publicacion=".$fila['id_expediente'];
 $datosComentario=mysqli_query($conexion,$consultaComentario);
-//Pendiente eliminar comentarios
-//<div style ="float:right;padding:5px;"><a style="color:gray;" onclick="eliminarComentario('.$filaComentario['id_comentario'].')"><span class="icon-cross"></span></a></div>
-
 while($filaComentario=mysqli_fetch_array($datosComentario))
 {
 echo'
