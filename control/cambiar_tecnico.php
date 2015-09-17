@@ -19,7 +19,7 @@ function getIP() {
    
     return $_SERVER['REMOTE_ADDR'];
 }
-$procedure="CALL bitacora('".date('Y-m-d')."','".date('H:i:s')."','".$_SESSION['login']."','Actualizo tecnico en expediente ".$expediente."','".getIP()."');";
+$procedure="CALL bitacora('".date('Y-m-d')."','".date('H:i:s')."','".$_SESSION['login']."','Actualizo tecnico en expediente ".$id_expediente."','".getIP()."');";
 mysqli_query($conexion,$procedure);
 //END PROCEDURE
 
