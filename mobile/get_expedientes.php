@@ -152,4 +152,18 @@ echo'<br><br>';
 }
 echo '</center>';
 echo '</div>';
+//PROCEDURE
+date_default_timezone_set("Mexico/General");
+function getIP() {
+    if (!empty($_SERVER['HTTP_CLIENT_IP']))
+        return $_SERVER['HTTP_CLIENT_IP'];
+       
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+        return $_SERVER['HTTP_X_FORWARDED_FOR'];
+   
+    return $_SERVER['REMOTE_ADDR'];
+}
+$procedure="CALL bitacora('".date('Y-m-d')."','".date('H:i:s')."','".$_SESSION['login']."',' Ha consultado los expedientes desde movil','".getIP()."');";
+mysqli_query($conexion,$procedure);
+//END PROCEDURE
  ?>

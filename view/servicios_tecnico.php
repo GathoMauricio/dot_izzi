@@ -143,7 +143,7 @@ function getIP() {
    
     return $_SERVER['REMOTE_ADDR'];
 }
-$procedure="CALL bitacora('".date('Y-m-d')."','".date('H:i:s')."','".$_SESSION['login']."',' Ha consultado los expedientes','".getIP()."');";
+$procedure="CALL bitacora('".date('Y-m-d')."','".date('H:i:s')."','".$_SESSION['login']."',' Ha consultado los expedientes desde WEB','".getIP()."');";
 mysqli_query($conexion,$procedure);
 //END PROCEDURE
 mysqli_close($conexion);
