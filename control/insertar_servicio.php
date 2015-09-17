@@ -68,7 +68,20 @@ VALUES
 	1,
 	'".$tipo."')";
 mysqli_query($conexion,$consulta);
-
+//PROCEDURE
+date_default_timezone_set("Mexico/General");
+function getIP() {
+    if (!empty($_SERVER['HTTP_CLIENT_IP']))
+        return $_SERVER['HTTP_CLIENT_IP'];
+       
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+        return $_SERVER['HTTP_X_FORWARDED_FOR'];
+   
+    return $_SERVER['REMOTE_ADDR'];
+}
+$procedure="CALL bitacora('".date('Y-m-d')."','".date('H:i:s')."','".$capturista."','Insertó expediente ".$expediente."','".getIP()."');";
+mysqli_query($conexion,$procedure);
+//END PROCEDURE
 $consulta='SELECT * FROM empleado WHERE id_empleado='.$tecnico." AND localidad != 'DF'";
 $datos=mysqli_query($conexion,$consulta);
 if($fila=mysqli_fetch_array($datos))

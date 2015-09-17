@@ -32,6 +32,7 @@ switch ($_SESSION['rol']) {
             	<ul class="nav navbar-nav" >
                     
                     <li><a href="admin.php"><span class="glyphicon glyphicon-tasks"></span> Servicios</a></li>
+                    <li><a href="bitacora.php"><span class="glyphicon glyphicon-tasks"></span> Bitácora</a></li>
                     <li><a href="pendientes_admin.php"><span class="glyphicon glyphicon-tasks"></span> Pendientes</a></li>
                     <li><a href="empleados.php"><span class="glyphicon glyphicon-user"></span> Empleados</a></li>
                     <li><a href="nuevo_empleado.php"><span class="glyphicon glyphicon-plus"></span>Nuevo empleado</a></li>

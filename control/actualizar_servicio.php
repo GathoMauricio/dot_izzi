@@ -1,5 +1,6 @@
 <?php 
 header("X-XSS-Protection: 0");
+session_start();
 include "../control/conexion.php";
 $expediente=$_POST['expediente'];
 $tecnico=$_POST['tecnico'];
@@ -35,6 +36,22 @@ tipo='".$tipo."'
 WHERE id_expediente=".$expediente;
 
 mysqli_query($conexion,$consulta);
+
+//PROCEDURE
+date_default_timezone_set("Mexico/General");
+function getIP() {
+    if (!empty($_SERVER['HTTP_CLIENT_IP']))
+        return $_SERVER['HTTP_CLIENT_IP'];
+       
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+        return $_SERVER['HTTP_X_FORWARDED_FOR'];
+   
+    return $_SERVER['REMOTE_ADDR'];
+}
+$procedure="CALL bitacora('".date('Y-m-d')."','".date('H:i:s')."','".$_SESSION['login']."','Actualizo expediente ".$expediente."','".getIP()."');";
+mysqli_query($conexion,$procedure);
+//END PROCEDURE
+
 mysqli_close($conexion);
 header("Location: ../view/editar_servicio.php?expediente=".$expediente."&act=true");
  ?>

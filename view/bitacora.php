@@ -48,40 +48,30 @@ switch ($_SESSION['rol']) {
              </div>
         </nav>
      <!--End Barra de Navegacion-->
-     <h3>SERVICIOS IZZI</h3>
-     <center>
-    <img src="../img/logo.png" id="logo_dot">
-    </center>
-     <center>
-     <p ><label><span class="glyphicon glyphicon-calendar"></span> <?php echo " ".date('Y-m-d'); ?><br><span class="glyphicon glyphicon-user"></span><?php echo " ". $_SESSION['login'] ?></label></p>
-     </center>
-     <br><br><br>
-     <!--BUSCADOR AQUI-->
-     
-        <br>
-        <hr>
-        <button class="btn btn-info" onclick="showNuevoPendienteAdmin();"><span class="glyphicon glyphicon-plus"></span> Agregar pendiente</button>
-        <button class="btn btn-success" onclick="cargarPendientesTerminados();"><span class="glyphicon glyphicon-log-out"></span> Pendientes terminados</button>
-        <hr>
-        <?php include "../control/conexion.php" ?>
-        <?php 
-        date_default_timezone_set("Mexico/General");
-        $conexion=mysqli_connect($host_bd,$usuario_bd,$contrasena_bd,$base_datos);
-        mysqli_set_charset($conexion, "utf8");
+     <h3>BITACORA</h3>
 
-        $consulta_empleado="SELECT * FROM empleado ORDER BY nombre";
-        $datos_empleado=mysqli_query($conexion,$consulta_empleado);
-        while($fila_empleado=mysqli_fetch_array($datos_empleado))
-        {
-            echo "<a id='inicio' href='#lbl_".$fila_empleado['nombre']." ".$fila_empleado['apaterno']." ".$fila_empleado['amaterno']."'>".$fila_empleado['nombre']." ".$fila_empleado['apaterno']." ".$fila_empleado['amaterno']."</a><br>";
-        }
-         ?>
-         <hr>
-     <div id="contenedor_pendientes_admin">
+    
 
+     <div id="contenedor_bitacora"></div>
+
+         <!--Modal notificacion-->
+<div class="modal fade" id="modal-notificacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                     <h3>Notificación!!!</h3>
+                </div>
+                <div class="modal-body">
+                     <h4 id="txt_notificacion"></h4> 
+                 </div>
+                                    
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                     <!--<button class="btn btn-default" data-dismiss="modal">Cancelar</button><br>-->
+                </div>
+            </div>
+        </div>
      </div>
-<?php include "modal_editar_pendiente.php" ?> 
-<?php include "modal_detalle_pendiente.php" ?>  
-<?php include "modal_nuevo_pendiente_admin.php" ?>  
-<?php include "modal_reasignar_admin.php" ?>    
+<?php include "modal-ver-encuesta.php" ?> 
 <?php include "footer.katze" ?>
