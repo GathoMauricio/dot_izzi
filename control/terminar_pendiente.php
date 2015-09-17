@@ -5,9 +5,10 @@ date_default_timezone_set("Mexico/General");
 $conexion=mysqli_connect($host_bd,$usuario_bd,$contrasena_bd,$base_datos);
 mysqli_set_charset($conexion, "utf8");
 
-$comentario="Terminado por ".$_SESSION['login'].": ".$_POST['comentario'];
+$comentario="Terminado: ".$_POST['comentario'];
 
 $consulta="UPDATE pendiente SET id_estatus=3 , comentario='".$comentario."' WHERE id_pendiente=".$_POST['id'];
+
 
 mysqli_query($conexion,$consulta);
 
@@ -24,13 +25,14 @@ require_once 'mail/lib/swift_required.php';
       ->setTo(array('rortuno@dotredes.com'=> 'CONTACTO'))
       ->setBody($comentario)
     ;
-   $mailer->send($message);
+   //$mailer->send($message);
+
+   $pusher2 = PusherInstance::get_pusher();
+   $pusher2->trigger(
+   'canal_notificacion',
+   'nueva_notificacion',
+   array('mensaje' => "Se ha terminado el pendiente ".$_POST['id'],
+     'expediente'=>$_POST['id'])
+   );
    
-   /*$mailer = Swift_Mailer::newInstance($transport);
-    $message = Swift_Message::newInstance("Termino de pendiente ".$_POST['id'])
-      ->setFrom(array('asistencia@dotredes.com' => 'DOT REDES'))
-      ->setTo(array('desarrollo@dotredes.com'=> 'CONTACTO'))
-      ->setBody($comentario)
-    ;
-   $mailer->send($message);*/
 ?>

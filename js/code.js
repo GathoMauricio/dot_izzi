@@ -48,6 +48,10 @@ function init()
 	$("#contenedor_servicios_agendados").html("<img src='../img/load_bar.gif' id='barra'>");
 	$("#contenedor_servicios_agendados").load("servicios_agendados.php");
 	
+
+	$("#contenedor_bitacora").html("<img src='../img/load_bar.gif' id='barra'>");
+	$("#contenedor_bitacora").load("get_bitacora.php");
+
 	var pusher = new Pusher('6f728ab7f8ef55d211e3');
 	var canal = pusher.subscribe('canal_notificacion');
 	canal.bind('nueva_notificacion',function(data){
@@ -871,5 +875,12 @@ function cambiarTecnico(tecnico,expediente)
 		id_expediente:expediente
 	},function(data){
 		alert(data);
+	});
+}
+function fechaBitacora(fecha)
+{
+	$("#contenedor_bitacora").html("<img src='../img/load_bar.gif' id='barra'>");
+	$.post("get_bitacora.php",{fecha:fecha},function(data){
+		$("#contenedor_bitacora").html(data);
 	});
 }
