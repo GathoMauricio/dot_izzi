@@ -35,9 +35,11 @@ $btnMenu1="";
 $btnMenu2="";
 $btnMenu3="";
 $costo="";
+$nombre="";
 while($fila=mysqli_fetch_array($datos))
 {
 	
+    $nombre=$fila['nombre']." ".$fila['apaterno']." ".$fila['amaterno'];
     switch ($fila['id_estatus'])
 	{
 		case 1:
@@ -163,7 +165,7 @@ function getIP() {
    
     return $_SERVER['REMOTE_ADDR'];
 }
-$procedure="CALL bitacora('".date('Y-m-d')."','".date('H:i:s')."','".$_SESSION['login']."',' Ha consultado los expedientes desde movil','".getIP()."');";
+$procedure="CALL bitacora('".date('Y-m-d')."','".date('H:i:s')."','".$nombre."',' Ha consultado los expedientes desde movil','".getIP()."');";
 mysqli_query($conexion,$procedure);
 //END PROCEDURE
  ?>
